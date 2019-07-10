@@ -1,21 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
+import like from '../assets/like.svg';
+import dislike from '../assets/dislike.svg';
 
-function Track({item, index}) {
+function Track({item, id, getData, count}) {
+  const [status] = useState(count);
   const link = item.id.label,
         artist = item['im:artist'].label,
         name = item['im:name'].label,
         price = item['im:price'].label,
         image = item['im:image'][2].label;
 
+  const changeStatus = () => getData(id, !status);
+
   return (
-    <li className="main-list-track">
-      <a className="track-link" href={link} target="_black">
-        <img className="track-image" src={image} alt={artist}/>
+    <div className="track-item">
+      <a href={link} className="track-image" target="_black">
+        <img src={image} alt={artist}/>
       </a>
-      <p className="track-artist">{index + 1}. {artist}</p>
-      <p className="track-name">{name}</p>
-      <p className="track-price">{price}</p>
-    </li>
+      <div className="track-item-in">
+        <p className="track-artist">{artist}</p>
+        <p className="track-name">{name}</p>
+        <p className="track-price">{price}</p>
+        <img className="track-status" onClick={() => changeStatus()} src={status ? like : dislike} alt="logo"/>
+      </div>
+    </div>
   );
 }
 

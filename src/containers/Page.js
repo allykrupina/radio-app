@@ -1,32 +1,21 @@
-import React, { Component } from 'react';
-import Track from '../components/Track';
-import Header from '../components/Header';
+import React from 'react';
+import { Link } from "react-router-dom";
 
-const API = 'https://itunes.apple.com/us/rss/topsongs/limit=100/json';
-
-class Page extends Component {
-  state = {
-    hitsArray: [],
-  };
-
-  componentDidMount() {
-    fetch(API)
-      .then(response => response.json())
-      .then(data => this.setState({ hitsArray: data.feed.entry }));
-  }
-
-  render() {
-    const { hitsArray } = this.state;
-
-    return (
-      <div className="main">
-        <Header/>
-        <ul className="main-list">
-          {hitsArray.map((hit, index) => <Track key={hit.id.attributes['im:id']} item={hit} index={index} /> )}
-        </ul>
-      </div>
-    );
-  }
+function Page({tracksArray}) {
+  return (
+    <ul className="track-list">
+      {tracksArray.map((track, index) => {
+        const id = track.id.attributes['im:id'],
+              artist = track['im:artist'].label,
+              name = track['im:name'].label;
+        return (
+          <li className="track-list-item" key={id}>
+            <Link to={`/${id}`} className="track-link">{`${index + 1}. ${artist} - ${name}`}</Link>
+          </li>
+        )
+      })}
+    </ul>
+  );
 }
 
 export default Page;

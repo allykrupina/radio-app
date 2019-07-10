@@ -11,6 +11,7 @@ body, * {
   background-size: contain;
   background-attachment: fixed;
   position: relative;
+  min-height: 100vh;
 }
 .main:before{
   content: '';
@@ -43,7 +44,7 @@ body, * {
   text-decoration: none;
   line-height: 40px;
   position: relative;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .header-donation:hover{
   opacity: 0.8;
@@ -65,26 +66,139 @@ body, * {
   align-items: flex-start;
   color: #fff;
   margin-bottom: 30px;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .main-list-track:hover{
   opacity: 0.5;
 }
-
+.track-list{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  padding: 0 30px 60px;
+}
+.track-list-item{
+  width: 100%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.track-list-item:hover{
+  opacity: 0.6;
+}
+.track-link{
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.track-item{
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.track-item-in{
+  text-align: center;
+  width: 100%;
+  padding: 30px;
+}
 .track-image{
   width: 60%;
-  border-radius: 20px;
+  max-width: 400px;
+  transition: 0.2s;
 }
-
+.track-image:hover{
+  opacity: 0.6;
+}
+.track-image img{
+  border-radius: 20px;
+  width: 100%;
+}
 .track-artist{
-  font-size: 10px;
+  font-size: 13px;
 }
 .track-name{
   margin: 5px 0;
-  font-size: 13px;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 .track-price{
+  font-size: 16px;
+}
+.track-status{
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.donate{
+  padding: 30px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.donate h2{
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.donate input{
+  font-size: 25px;
+  color: #000;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 15px;
+  border-bottom: 3px solid #fff;
+  text-align: center;
+}
+.donate p{
+  width: 200px;
+  line-height: 50px;
+  background: #414141;
+  color: #fff;
+  margin: 30px auto;
+  border-radius: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.donate p:hover{
+  opacity: 0.8;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+.return-block{
+  display: flex;
+  margin: 0 30px 30px;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100px;
+}
+.return-block:hover{
+  opacity: 0.5;
+}
+.return-img{
+  width: 25px;
+  margin-right: 10px;
+}
+.return-text{
   font-size: 12px;
-  text-transform: uppercase;
 }
